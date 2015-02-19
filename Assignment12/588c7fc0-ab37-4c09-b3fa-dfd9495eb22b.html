@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <title>Assignments</title>
+    <link href="/library/skin/tool_base.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/library/skin/neo-uf-default/tool.css" type="text/css" rel="stylesheet" media="all" />
+<script type="text/javascript" language="JavaScript" src="/library/js/headscripts.js"></script>
+<script type="text/javascript" language="JavaScript">var sakai = sakai || {}; sakai.editor = sakai.editor || {};  sakai.locale = sakai.locale || {};
+sakai.locale.userCountry = 'US';
+sakai.locale.userLanguage = 'en';
+sakai.locale.userLocale = 'en_US';
+sakai.editor.collectionId = '/group/UFL-61248-12015/';
+sakai.editor.enableResourceSearch = false;</script>
+<script type="text/javascript" language="JavaScript">var CKEDITOR_BASEPATH='/library/editor/ckeditor/';
+</script>
+<script type="text/javascript" language="JavaScript" src="/library/editor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" language="JavaScript" src="/library/editor/ckeditor.launch.js"></script>
+	
+    
+    	            
+    
+  </head>
+  <body  onload="setMainFrameHeight('Main588c7fc0xab37x4c09xb3faxdfd9495eb22b');setFocus(focus_path);"  >
+<!-- $Id: chef_assignments_student_view_submission.vm 104471 2012-02-07 16:35:32Z zqian@umich.edu $ -->
+<!-- start: chef_assignments_student_view_submission.vm  -->
+<!-- $Id: assignment_macros.vm 94135 2011-06-27 14:25:22Z yorkadam@umich.edu $ -->
+<!-- start:  assignment_macros.vm -->
+<!-- end:  assignment_macros.vm --><script type="text/javascript" src="/library/js/jquery.js"></script>
+<link href="/sakai-assignment-tool/css/assignment.css" type="text/css" rel="stylesheet" media="all" />
+<script type="text/javascript"  src="/sakai-assignment-tool/js/assignments.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    setupToggleAreas('toggleAnchor', 'toggledContent', false, 'fast');
+    $('#submissionFileCount').val(1);
+    $('#addMoreAttachmentControls').click(function(e){
+        e.preventDefault();
+        if ($('#submissionFileCount').val() < 5) {
+            var $input = $('#clonableUpload').clone().removeAttr('id').addClass('cloned').appendTo('#clonedHolder').children('input');
+            $input.val('');
+            var $count = $('#submissionFileCount').val();
+            var $nameCount = "upload"+$count;
+            $input.attr("name", $nameCount);
+            $('#submissionFileCount').val(parseInt($('#submissionFileCount').val(), 10) + 1);
+            if ($('#submissionFileCount').val() == 5) {
+                $('#addMoreAttachmentControls').hide();
+                $('#addMoreAttachmentControlsInactive').show();
+            }
+        }
+        $('.cloned a').show();
+        resizeFrame('grow');
+    });
+    
+});
+var notifyDeleteControl = function(){
+    $('#submissionFileCount').val(parseInt($('#submissionFileCount').val(), 10) - 1);
+    if ($('#submissionFileCount').val() < 5) {
+        $('#addMoreAttachmentControls').show();
+        $('#addMoreAttachmentControlsInactive').hide();
+    }
+};
+
+function submitform(id)
+{
+	var theForm = document.getElementById(id);
+	if(theForm && theForm.onsubmit)
+	{
+		theForm.onsubmit();
+	}
+	if(theForm && theForm.submit)
+	{
+		theForm.submit();
+	}
+}
+		
+</script>
+
+
+<div class="portletBody">
+					<div class="alertMessage">The close date of the assignment has passed. You can no longer submit an answer.</div><div class="clear"></div>
+					<table class="itemSummary"  summary="The assignment info">
+				<tr>
+					<th>
+						Title
+					</th>
+					<td>
+						            <span class="user_icon" title="Individual Submission" alt="Individual Submission"></span>
+                                                    Assignment 12
+																	</td>
+				</tr>
+				<tr>
+					<th>
+						Due
+					</th>
+					<td>
+						Feb 17, 2015 3:50 pm
+					</td>
+				</tr>
+																					<tr>
+					<th>
+						Status
+					</th>
+					<td>
+													Not Started
+											</td>
+				</tr>
+																			<tr>	
+							<th>
+								Grade Scale
+							</th>
+							<td>
+								Points
+																	(max 10.0)
+																
+								<!--DN 2012-09-21: show rubric link, use for grade rubric -->
+								<!--if have define gradebookitem(this mean have included gradebook item from gradebook) -->
+										
+									<!--DN 2012-09-24: include file chef_assignments_irubric.vm -->
+									<!--DN 2012-10-12:move js(optimize code) -->
+<script type="text/javascript"  src="/sakai-assignment-tool/js/irubric.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+		//create iRubric link
+		getLinkiRubric();
+		
+    });
+</script>
+
+<input type="hidden" id="Purpose" value="view" />
+<input type="hidden" id="gradebookUId" value="UFL-61248-12015" />
+<input type="hidden" id="studentUId"  value="d5652df6-d72f-4348-a78c-a8caefb81c4f" />
+<input type="hidden" id="gradebookItem" value="576990" />
+
+<span style="margin-left:10px;display:none;" id="irubric-area">
+   	<a href="#" id="irubric-link"><img src="/sakai-gradebook-tool/images/rubric.gif" alt="iRubric Link" /></a>
+   
+   	<!--if use grade then show link refresh grade -->
+   	</span>
+
+						        						        
+							</td>
+						</tr>
+																												</table>
+		<h4>
+			Instructions
+		</h4>
+		
+					<div class="textPanel"><p>  Please refer to the attached file.  </p></div>
+																			<h4>
+				Additional resources for assignment
+			</h4>	
+				<ul class="attachList indnt1">
+																		<li>
+																	<img src = "/library/image/sakai/pdf.gif?panel=Main" border="0" alt="File attachment" />
+																	<a href="https://elearning2.courses.ufl.edu/access/content/attachment/UFL-61248-12015/Assignments/543cf5b9-0b18-4242-870b-d1e3e6b80114/ISM%203254%20Assignment%2012.pdf" target="_blank">ISM 3254 Assignment 12.pdf</a>						
+									<span class="textPanelFooter">(
+			247 KB;
+		Feb 17, 2015 9:56 am
+	)</span>
+							</li>
+															</ul>
+																							        	<!-- $Id: chef_assignments_tags_list.vm 94881 2011-07-08 14:22:21Z ottenhoff@longsight.com $ -->
+<!-- start: chef_assignments_tags_list.vm  -->
+<script type="text/javascript" language="JavaScript">
+
+function saveChanges(formName, textAreaId) {
+	var _textArea = document.getElementById(textAreaId);
+	if (_textArea != null) {
+		if (typeof FCKeditorAPI != "undefined") {
+			var editor = FCKeditorAPI.GetInstance(textAreaId);
+			document[formName].savedText.value = editor.GetXHTML(false);
+		}
+	}
+}
+
+iframeId = 'Main588c7fc0xab37x4c09xb3faxdfd9495eb22b';
+
+</script>
+<form name="form" action="https://elearning2.courses.ufl.edu/portal/tool/588c7fc0-ab37-4c09-b3fa-dfd9495eb22b?panel=Main" method="post">
+	<input type="hidden" name="sakai_action" value=""/>
+	<input type="hidden" name="providerId" value=""/>
+	<input type="hidden" name="criteria" value=""/>
+	<input type="hidden" name="savedText" value=""/>
+						<input type="hidden" name="sakai_csrf_token" value="b4b95146f58dbffbd62f3ebf61cf1048541a5a41f3fee20d8c396d5afb33c372" />
+</form>
+<!-- end: chef_assignments_tags_list.vm  -->
+				<hr class="itemSeparator" />
+						<h3>Submission</h3> 
+		
+
+
+					<form name="addSubmissionForm" id="addSubmissionForm" action="https://elearning2.courses.ufl.edu/portal/tool/588c7fc0-ab37-4c09-b3fa-dfd9495eb22b?panel=Main" method="post" onsubmit="return true;" enctype="multipart/form-data">
+		<input type="hidden" name="eventSubmit_doRead_add_submission_form" value="x" />
+		<input type="hidden" name="option" id="option" value="cancel" />
+		<input type="hidden" name="currentAttachment" value="" />
+		<input type="hidden" name="assignmentId" value="/assignment/a/UFL-61248-12015/b9bb751a-7d06-47c8-9477-383c71afd54b" />
+																															No attachments yet
+																																	<p class="act">
+				<input 
+					type="button" 
+					name="cancel"
+					accesskey="x"
+					id="cancel" 
+					value="Done"
+					onclick="document.addSubmissionForm.onsubmit();document.addSubmissionForm.option.value='cancel'; document.addSubmissionForm.submit(); return false;"
+				/>
+			</p>
+				<input type="hidden" name="sakai_csrf_token" value="b4b95146f58dbffbd62f3ebf61cf1048541a5a41f3fee20d8c396d5afb33c372" />
+	</form>
+	</div>
+<!-- end: chef_assignments_student_view_submission.vm  -->
+</body></html>

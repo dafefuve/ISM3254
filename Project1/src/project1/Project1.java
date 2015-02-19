@@ -1,4 +1,4 @@
-:/*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -38,7 +38,7 @@ public class Project1 {
             System.out.print("Enter your Name: ");
             userIn2 = input.next();
             switch (userIn2){
-                case "Fuentes" : System.out.println( "Fuentes, Daniel");break;
+                case "Fuentes" : System.out.print( "Fuentes, ");
                 case "Daniel" : System.out.println("Daniel");break;
                 default: System.out.println("Error!");
             }
