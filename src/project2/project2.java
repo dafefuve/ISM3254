@@ -19,6 +19,23 @@ public class project2 {
             calendar(month, days, firstDay);
         }
         else if (user_choice == 2){
+            String[] name = new String[5];
+            char[] grade = new char[5];
+            for(int i = 0; i < name.length;i++){
+                double midterm, finalScore;
+                System.out.print("Student " + (i + 1) + "\nEnter the student name: ");
+                name[i] = input.next();
+                System.out.print( "Enter the midterm score: ");
+                midterm = input.nextDouble();
+                System.out.print( "Enter the final score: ");
+                finalScore = input.nextDouble();
+                grade[i] = function( function( average( midterm, finalScore ), finalScore ) );
+            }
+            System.out.println("Name\tGrade");
+            for (int i = 0; i < name.length; i+=2)
+            {
+                System.out.println(name[i] + "\t" + grade[i]);
+            }
 
         }
         else{
@@ -45,4 +62,21 @@ public class project2 {
         }
         System.out.println("");
     }
+    public static double average(double num1,double num2){
+        return (num1+num2)/2;
+    }
+    public static double function(double average, double finalScore){
+        return average > finalScore ? average : finalScore;
+    }
+    public static char function(double score){
+        if(score > 90)
+            return 'A';
+        else if(score > 80)
+            return 'B';
+        else if (score > 70)
+            return 'C';
+        else
+            return 'F';
+    }
+
 }
